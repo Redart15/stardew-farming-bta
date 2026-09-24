@@ -50,12 +50,10 @@ public class BlockLogicCropTall extends BlockLogicCropBase {
             }
             return;
         }
-
         if (meta >= growTopMeta && world.getBlockType(new TilePos(tilePos.x(), tilePos.y() + 1, tilePos.z())) != otherBlock) {
             world.setBlockDataNotify(tilePos, 0);
             return;
         }
-
         if (!super.canStay(world, tilePos)) {
             world.setBlockDataNotify(tilePos, 0);
             this.dropWithCause(world, EnumDropCause.WORLD, tilePos, meta, null, null);
@@ -72,10 +70,8 @@ public class BlockLogicCropTall extends BlockLogicCropBase {
     @Override
     public void onGrowth(World world, TilePosc tilePos, int newMeta) {
         // this.growTopMeta > -1 == BOTTOM Block of a tall crop
-
         if (this.growTopMeta > -1 && newMeta >= this.growTopMeta) {
             Block<?> blockAbove = world.getBlockType(tilePos.up(new TilePos()));
-
             if (blockAbove == otherBlock || blockAbove == Blocks.AIR) {
                 world.setBlockDataNotify(tilePos, newMeta);
 
@@ -84,28 +80,23 @@ public class BlockLogicCropTall extends BlockLogicCropBase {
 
                 world.setBlockTypeDataNotify(tilePos.up(new TilePos()), otherBlock, topMeta);
             }
+            return;
         }
-
-        else if (this.growTopMeta < 0) {
-
+        if (this.growTopMeta < 0) {
             // NOTE: You generally don't want the top block to be
             // ticking since it would result in tall blocks growing
             // more frequently, but this is handled regardless
             world.setBlockDataNotify(tilePos, newMeta);
             Block<?> blockBelow = world.getBlockType(tilePos.down(new TilePos()));
-
             if (blockBelow == otherBlock) {
                 int max = otherBlock.getLogic().maxGrowth;
                 int diff = max - this.maxGrowth;
                 int bottomMeta = MathHelper.clamp(newMeta + diff, 0, max);
                 world.setBlockDataNotify(tilePos.down(new TilePos()), bottomMeta);
             }
-
+            return;
         }
-
-        else {
-            world.setBlockDataNotify(tilePos, newMeta);
-        }
+        world.setBlockDataNotify(tilePos, newMeta);
     }
 
 
@@ -114,13 +105,10 @@ public class BlockLogicCropTall extends BlockLogicCropBase {
         if (this.growTopMeta < 0) {
             return super.canStay(world, tilePos) && world.getBlockType(tilePos.down(new TilePos())) == this.otherBlock;
         }
-
         int meta = world.getBlockData(tilePos);
-
         if (meta >= this.growTopMeta) {
             return super.canStay(world, tilePos) && world.getBlockType(tilePos.up(new TilePos())) == this.otherBlock;
         }
-
         return super.canStay(world, tilePos);
     }
 }

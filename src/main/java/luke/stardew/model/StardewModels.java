@@ -165,17 +165,17 @@ public class StardewModels {
 
         dispatcher.addDispatch(
             StardewBlocks.BEEHIVE,
-            new BlockModelGenericRotatable<>(StardewBlocks.BEEHIVE, BlockModelDispatcher.loadDataModel("stardew:/block/beehive/inactive"))
+            new BlockModelGenericRotatable<>(StardewBlocks.BEEHIVE, BlockModelDispatcher.loadDataModel("stardew:block/beehive/inactive"))
         );
 
         dispatcher.addDispatch(
             StardewBlocks.BEEHIVE_IDLE,
-            new BlockModelGenericRotatable<>(StardewBlocks.BEEHIVE_IDLE, BlockModelDispatcher.loadDataModel("stardew:/block/beehive/idle"))
+            new BlockModelGenericRotatable<>(StardewBlocks.BEEHIVE_IDLE, BlockModelDispatcher.loadDataModel("stardew:block/beehive/idle"))
         );
 
         dispatcher.addDispatch(
             StardewBlocks.BEEHIVE_HONEY,
-            new BlockModelGenericRotatable<>(StardewBlocks.BEEHIVE_HONEY, BlockModelDispatcher.loadDataModel("stardew:/block/beehive/full"))
+            new BlockModelGenericRotatable<>(StardewBlocks.BEEHIVE_HONEY, BlockModelDispatcher.loadDataModel("stardew:block/beehive/full"))
         );
 
 
@@ -184,17 +184,17 @@ public class StardewModels {
 
         dispatcher.addDispatch(
             StardewBlocks.PLANT_STAKE,
-            new BlockModelGenericFullyRotatable<>(StardewBlocks.PLANT_STAKE, BlockModelDispatcher.loadDataModel("stardew:/block/plant_stake").asModel())
+            new BlockModelGenericFullyRotatable<>(StardewBlocks.PLANT_STAKE, BlockModelDispatcher.loadDataModel("stardew:block/plant_stake").asModel())
         );
 
         dispatcher.addDispatch(
             StardewBlocks.WATERMELON,
-            new BlockModelGenericFullyRotatable<>(StardewBlocks.WATERMELON, BlockModelDispatcher.loadDataModel("stardew:/block/watermelon").asModel())
+            new BlockModelGenericFullyRotatable<>(StardewBlocks.WATERMELON, BlockModelDispatcher.loadDataModel("stardew:block/watermelon").asModel())
         );
 
         dispatcher.addDispatch(
             StardewBlocks.CAULIFLOWER,
-            new BlockModelGenericFullyRotatable<>(StardewBlocks.CAULIFLOWER, BlockModelDispatcher.loadDataModel("stardew:/block/cauliflower").asModel())
+            new BlockModelGenericFullyRotatable<>(StardewBlocks.CAULIFLOWER, BlockModelDispatcher.loadDataModel("stardew:block/cauliflower").asModel())
         );
     }
 

@@ -53,6 +53,7 @@ public class StardewMod implements ModInitializer{
         StardewEntities.init();
         StardewBlocks.init();
         StardewItems.init();
+        StardewWorldFeatures.init();
 
         NetEntityHandler.registerNetworkEntry(new NetEntryEggDuck(), 300);
         NetEntityHandler.registerNetworkEntry(new NetEntryTomato(), 301);

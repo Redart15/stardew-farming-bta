@@ -3,7 +3,6 @@ package luke.stardew.model;
 import luke.stardew.blocks.BlockLogicLeavesSeasonalFlowering;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
-import net.minecraft.client.render.block.model.generic.BlockModelGeneric;
 import net.minecraft.client.render.block.model.generic.BlockModelGenericLeaves;
 import net.minecraft.client.render.tessellator.TessellatorGeneral;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
@@ -27,16 +26,17 @@ public class BlockModelLeavesFlowering<T extends BlockLogic> extends BlockModelG
         @NotNull String overlayFlowering
     ) {
         super(block, base);
-
         this.overlay = BlockModelDispatcher.loadDataModel(overlay).asModel();
         this.overlayFlowering = BlockModelDispatcher.loadDataModel(overlayFlowering).asModel();
     }
 
+    @Override
     public void renderStandalone(@NotNull TessellatorGeneral tessellator, int metadata, byte lightIndex) {
         super.renderStandalone(tessellator, metadata, lightIndex);
         this.overlay.renderStandalone(this, tessellator, 0.0F, 0.0F, 0.0F, metadata, lightIndex, BlockColorDispatcher.getInstance().getDispatch(this.block));
     }
 
+    @Override
     public boolean renderAttached(@NotNull TessellatorGeneral tessellator, @NotNull WorldSource worldSource, @NotNull TilePosc tilePos, boolean cullFaces, @Nullable IconCoordinate overrideTexture) {
         boolean didRender = super.renderAttached(tessellator, worldSource, tilePos, cullFaces, overrideTexture);
         int growthRate = BlockLogicLeavesSeasonalFlowering.getGrowthRate(worldSource.getBlockData(tilePos));
