@@ -1,4 +1,4 @@
-package luke.stardew;
+package luke.stardew.world;
 
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.world.World;

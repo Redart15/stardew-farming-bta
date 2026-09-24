@@ -1,6 +1,6 @@
 package luke.stardew.blocks;
 
-import luke.stardew.WorldFeatureTreeSeasonal;
+import luke.stardew.world.WorldFeatureTreeSeasonal;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicSaplingBase;
 import net.minecraft.core.block.Blocks;

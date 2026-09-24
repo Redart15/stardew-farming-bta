@@ -1,4 +1,4 @@
-package luke.stardew;
+package luke.stardew.world;
 
 import luke.stardew.blocks.BlockLogicBush;
 import luke.stardew.blocks.StardewBlocks;

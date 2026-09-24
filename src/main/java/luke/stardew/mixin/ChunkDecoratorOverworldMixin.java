@@ -1,9 +1,9 @@
 package luke.stardew.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import luke.stardew.WorldFeatureBush;
-import luke.stardew.WorldFeatureCauliflower;
-import luke.stardew.WorldFeatureMelon;
+import luke.stardew.world.WorldFeatureBush;
+import luke.stardew.world.WorldFeatureCauliflower;
+import luke.stardew.world.WorldFeatureMelon;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.chunk.Chunk;
 import net.minecraft.core.world.generate.chunk.perlin.overworld.ChunkDecoratorOverworld;
