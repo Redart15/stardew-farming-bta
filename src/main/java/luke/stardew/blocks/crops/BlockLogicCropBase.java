@@ -7,6 +7,7 @@ import net.minecraft.core.block.BlockLogicFlower;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.entity.TileEntityActivator;
+import net.minecraft.core.data.gamerule.GameRules;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.IBonemealable;
@@ -120,7 +121,7 @@ public class BlockLogicCropBase extends BlockLogicFlower implements IBonemealabl
 
     @Override
     public void updateTick(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand, boolean isRandomTick) {
-        super.updateTick(world, tilePos, rand, isRandomTick);
+        this.checkUp(world, tilePos, rand);
         Season current = world.getSeasonManager().getCurrentSeason();
 
         if (world.getBlockLightValue(tilePos.up(new TilePos())) >= 9 && season.contains(current)) {
@@ -137,6 +138,13 @@ public class BlockLogicCropBase extends BlockLogicFlower implements IBonemealabl
 
     }
 
+    protected final void checkUp(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand) {
+        this.checkAlive(world, tilePos);
+        if (this.killedByWeather && world.getGameRuleValue(GameRules.DO_SEASONAL_GROWTH) && world.getSeasonManager().getCurrentSeason() != null && !isPermanent(world.getBlockData(tilePos)) && world.getSeasonManager().getCurrentSeason().killFlowers && rand.nextInt(256) == 0) {
+            world.setBlockTypeNotify(tilePos, Blocks.AIR);
+        }
+    }
+
     @Override
     public @NotNull ItemStack @Nullable [] getBreakResult(@NotNull World world, @NotNull EnumDropCause dropCause, @NotNull TilePosc tilePos, int data, @Nullable TileEntity tileEntity) {
         return getHarvestResult(world, dropCause, tilePos, data, tileEntity).toArray(new ItemStack[]{});
@@ -144,12 +152,10 @@ public class BlockLogicCropBase extends BlockLogicFlower implements IBonemealabl
 
     @Override
     public boolean onBonemealUsed(@NotNull ItemStack itemStack, @Nullable Player player, @NotNull World world, @NotNull TilePosc tilePos, @NotNull Side side, double xHit, double yHit) {
-        var blockData = world.getBlockData(tilePos);
-
+        int blockData = world.getBlockData(tilePos);
         if (blockData >= this.maxGrowth) {
             return false;
         }
-
         if (!world.isClientSide) {
             this.onGrowth(world, tilePos, this.maxGrowth);
             if (player == null || player.getGamemode().hasBlockConsumption()) {
@@ -211,7 +217,7 @@ public class BlockLogicCropBase extends BlockLogicFlower implements IBonemealabl
         if (this.growsInto != null && newMeta >= this.maxGrowth) {
             world.setBlockTypeDataNotify(tilePos, this.growsInto, 0);
         } else {
-            world.setBlockDataNotify(tilePos, 0);
+            world.setBlockDataNotify(tilePos, newMeta);
         }
     }
 
@@ -221,7 +227,7 @@ public class BlockLogicCropBase extends BlockLogicFlower implements IBonemealabl
 
         TilePos[] offsets = new TilePos[8];
 
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i < 4; i++) {
             offsets[i] = new TilePos(tilePos).add(Direction.horizontal[i]);
         }
 
