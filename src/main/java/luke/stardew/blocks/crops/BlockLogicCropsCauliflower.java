@@ -51,7 +51,7 @@ public class BlockLogicCropsCauliflower extends BlockLogicCropBase implements IB
 
     @Override
     public void updateTick(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand, boolean isRandomTick) {
-        super.updateTick(world, tilePos, rand, isRandomTick);
+        this.checkUp(world, tilePos, rand);
         Season current = world.getSeasonManager().getCurrentSeason();
         if (world.getBlockLightValue(new TilePos(tilePos.x(), tilePos.y() + 1, tilePos.z())) >= 9 && season.contains(current)) {
             int meta = world.getBlockData(tilePos);
@@ -62,7 +62,7 @@ public class BlockLogicCropsCauliflower extends BlockLogicCropBase implements IB
                     if (meta == 5) {
                         world.setBlockTypeDataNotify(tilePos, StardewBlocks.CAULIFLOWER, 1);
                     } else {
-                        world.setBlockDataNotify(tilePos, meta);
+                         world.setBlockDataNotify(tilePos, meta);
                     }
                 }
             }

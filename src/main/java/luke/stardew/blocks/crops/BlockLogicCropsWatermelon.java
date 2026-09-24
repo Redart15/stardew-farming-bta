@@ -51,7 +51,7 @@ public class BlockLogicCropsWatermelon extends BlockLogicCropBase implements IBo
 
     @Override
     public void updateTick(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand, boolean isRandomTick) {
-        super.updateTick(world, tilePos, rand, isRandomTick);;
+        this.checkUp(world, tilePos, rand);
         Season current = world.getSeasonManager().getCurrentSeason();
 
         if (world.getBlockLightValue(tilePos.up(new TilePos())) >= 9 && season.contains(current)) {
