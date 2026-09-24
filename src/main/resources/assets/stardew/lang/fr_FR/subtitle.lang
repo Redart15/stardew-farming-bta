@@ -1,10 +1,13 @@
 subtitles.mob.duck.death=Canard qui meurt
 subtitles.mob.duck.idle=Canard qui cancane
 subtitles.mob.duck.hurt=Canard blessé
+
 subtitles.mob.goat.death=Chèvre blessé
 subtitles.mob.goat.idle=Une chèvre bêle
+
 subtitles.mob.bee=Un abeille bourdonne
-aether.guidebook.section.incubator.duck=
 
 
-
+aether.guidebook.section.incubator.duck=Qui est venu en premier, l'œuf ou le canard ?
+stardew.effect.tweaked_out.name=Hautement Caféiné
+attribute.stardew.tweak_speed.name=Vitesse est mon deuxième prénom !
