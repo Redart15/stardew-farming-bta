@@ -36,22 +36,21 @@ public class MobDuck extends MobAnimal implements Creature {
         return 5;
     }
 
+    // RUNS ONLY ON SERVER. DO NOT USE CLIENT CLASSES HERE
     @Override
     public void updateAI() {
         boolean inWater = this.wasInWater;
         this.wasInWater = false;
         super.updateAI(); //Stop jumping in water
         this.wasInWater = inWater;
-
         if (this.isInWater()) {
             double yh = this.bb.minY - MathHelper.floor(this.bb.minY);
-
             int x = MathHelper.floor(this.x);
             int y = MathHelper.floor(this.bb.minY + 0.125);
             int y2 = MathHelper.floor(this.bb.minY + 0.6);
             int z = MathHelper.floor(this.z);
             boolean air = this.world.getBlockLogic(new TilePos(x, y2, z), BlockLogicFluid.class) == null;
-            if (!(this.world instanceof WorldEmpty) && this.world.getBlockLogic(new TilePos(x, y, z), BlockLogicFluid.class) != null && air) {
+            if (this.world.getBlockLogic(new TilePos(x, y, z), BlockLogicFluid.class) != null && air) {
                 if (yh < 0.125) {
                     this.yd = 0;
                 }
@@ -60,6 +59,7 @@ public class MobDuck extends MobAnimal implements Creature {
             }
         }
     }
+
 
     @Override
     public void onLivingUpdate() {
@@ -96,8 +96,7 @@ public class MobDuck extends MobAnimal implements Creature {
 
             this.flap += this.flapping * 2.0F;
         }
-
-        if (!(this.world instanceof WorldEmpty) && !this.world.isClientSide && --this.eggTimer <= 0) {
+        if (!this.world.isClientSide && --this.eggTimer <= 0) {
             this.world.playSoundAtEntity(null, this, "mob.chickenplop", 1.0f, (this.random.nextFloat() - this.random.nextFloat()) * 0.2f - 1.0f);
             this.dropItem(StardewItems.EGG_DUCK.id, 1);
             this.eggTimer = this.random.nextInt(3000) + 3000;
