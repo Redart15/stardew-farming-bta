@@ -332,6 +332,13 @@ public final class StardewBlocks {
     }
 
     public static void initializeCrops() {
+        StardewBlocks.spingGrowth();
+        StardewBlocks.summerGrowth();
+        StardewBlocks.fallGrowth();
+        StardewBlocks.winterGrowth();
+    }
+
+    private static void spingGrowth() {
         //Spring Crops
         StardewBlocks.<BlockLogicCropBase>getLogicAs(CROPS_CARROT)
             .withCrop(StardewItems.CARROT)
@@ -356,7 +363,8 @@ public final class StardewBlocks {
             .withProperSeason(Seasons.OVERWORLD_SPRING)
             .withResetMeta(2)
             .notFertilized();
-
+    }
+    private static void summerGrowth() {
         //Summer Crops
         StardewBlocks.<BlockLogicCropBase>getLogicAs(CROPS_TOMATO)
             .withCrop(StardewItems.TOMATO, 1, 2)
@@ -388,7 +396,8 @@ public final class StardewBlocks {
             .withProperSeason(Seasons.OVERWORLD_SUMMER)
             .growsInto(WATERMELON)
             .noHarvest();
-
+    }
+    private static void fallGrowth() {
         //Fall Crops
         StardewBlocks.<BlockLogicCropTall>getLogicAs(CROPS_CORN_BOTTOM)
             .growsTop(CROPS_CORN_TOP, 3)
@@ -425,7 +434,8 @@ public final class StardewBlocks {
             .withResetMeta(3)
             .withCrop(StardewItems.GRAPES, 1, 3)
             .notFertilized();
-
+    }
+    private static void winterGrowth() {
         //Winter Crops
 
         StardewBlocks.<BlockLogicCropBase>getLogicAs(CROPS_CRANBERRIES)
