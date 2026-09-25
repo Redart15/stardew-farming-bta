@@ -36,8 +36,10 @@ achievement.stardew.master.fisher=Pêcheur professionel
 achievement.stardew.master.fisher.desc=Pêchez chaques espèces de poissons légendaires.
 
 
-guidebook.section.mob.duck.name=Canard
-guidebook.section.mob.duck.desc=Les canards sont une bonne source d'œufs, utiles en cuisine. On les trouve assez rarement dans la plupart des biomes.
+guidebook.section.mob.stardew.duck.name=Canard
+guidebook.section.mob.stardew.duck.desc=Les canards sont une bonne source d'œufs, utiles en cuisine. On les trouve assez rarement dans la plupart des biomes.
 
-guidebook.section.mob.goat.name=Chèvre
-guidebook.section.mob.goat.desc=Les chèvres sont un groupe d'animaux bruyants qui se comportent comme des moutons et des vaches.\nOn les trouve assez rarement dans la plupart des biomes.
+guidebook.section.mob.stardew.goat.name=Chèvre
+guidebook.section.mob.stardew.goat.desc=Les chèvres sont un groupe d'animaux bruyants qui se comportent comme des moutons et des vaches.\nOn les trouve assez rarement dans la plupart des biomes.
+
+guidebook.section.mob.stardew.duck_egg.name=œuf de canard
