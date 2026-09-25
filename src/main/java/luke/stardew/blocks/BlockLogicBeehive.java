@@ -1,9 +1,11 @@
 package luke.stardew.blocks;
 
+import luke.stardew.items.StardewItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicRotatable;
 import net.minecraft.core.block.material.Materials;
 import net.minecraft.core.entity.player.Player;
+import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.minecraft.core.util.helper.Side;
@@ -23,7 +25,8 @@ public class BlockLogicBeehive extends BlockLogicRotatable {
     public boolean onInteracted(@NotNull World world, @NotNull TilePosc tile, @NotNull Player player, @Nullable Side side, double xHit, double yHit) {
         int l = world.getBlockData(tile);
         ItemStack stack = player.getHeldItem();
-        if (world.getSeasonManager().getCurrentSeason() != Seasons.OVERWORLD_WINTER && stack != null && stack.getItem().equals(Items.DUST_SUGAR)) {
+        if (world.getSeasonManager().getCurrentSeason() != Seasons.OVERWORLD_WINTER && this.isAcceptable(stack)
+        ) {
             stack.consumeItem(player);
             world.setBlockTypeDataNotify(tile, StardewBlocks.BEEHIVE_IDLE, l);
             world.playSoundAtEntity(player, player, "random.pop", 0.2F, 0.5F);
@@ -31,4 +34,14 @@ public class BlockLogicBeehive extends BlockLogicRotatable {
         }
         return false;
     }
+
+    private boolean isAcceptable(ItemStack stack) {
+        if(stack == null){
+            return false;
+        }
+        Item item = stack.getItem();
+        return item.equals(Items.DUST_SUGAR) || item.equals(StardewItems.HONEY) || item.equals(StardewItems.JAR_JAM);
+    }
+
+
 }

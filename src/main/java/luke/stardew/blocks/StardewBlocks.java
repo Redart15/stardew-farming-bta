@@ -64,6 +64,7 @@ public final class StardewBlocks {
 
     public static Block<?> BEEHIVE_IDLE;
     public static Block<?> BEEHIVE_HONEY;
+    public static Block<?> BEEHIVE;
 
     public static Block<?> BLOCK_HONEY;
 
@@ -72,7 +73,6 @@ public final class StardewBlocks {
 
     public static Block<?> CAKE_CHOCOLATE;
 
-    public static Block<?> BEEHIVE;
 
     public static Block<?> PIZZA;
 
@@ -272,7 +272,7 @@ public final class StardewBlocks {
             .setTags(BlockTags.BROKEN_BY_FLUIDS)
             .build("cake.chocolate", "cake_chocolate", blockID("CAKE_CHOCOLATE"), b -> new BlockLogicEdibleCustom(b, 0.5f, () -> StardewItems.FOOD_CAKE_CHOCOLATE));
 
-        BEEHIVE = wood
+        BEEHIVE = wood // inactive no bee one
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.WORKBENCHES))
             .build("beehive", "beehive", blockID("BEEHIVE"), BlockLogicBeehive::new);
 

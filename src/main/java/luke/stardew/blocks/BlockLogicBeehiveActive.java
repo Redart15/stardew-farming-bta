@@ -99,12 +99,14 @@ public class BlockLogicBeehiveActive extends BlockLogicRotatable {
     @Override
     public void updateTick(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand, boolean isRandomTick) {
         super.updateTick(world, tilePos, rand, isRandomTick);
-
         if (world.getSeasonManager().getCurrentSeason() != Seasons.OVERWORLD_WINTER) {
             int blockData = world.getBlockData(tilePos);
             if (rand.nextInt(50) == 0) {
                 world.setBlockTypeDataNotify(tilePos, StardewBlocks.BEEHIVE_HONEY, blockData);
             }
+        }else{
+            int blockData = world.getBlockData(tilePos);
+            world.setBlockTypeDataNotify(tilePos, StardewBlocks.BEEHIVE, blockData);
         }
     }
 
