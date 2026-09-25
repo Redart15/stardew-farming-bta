@@ -74,9 +74,9 @@ public class StardewClient implements ClientModInitializer{
     }
 
     public static void afterClientStart() {
-        MONEY_HUD_COMPONENT = HudComponents.register(
-            new MoneyHudElement("stadew.money", 0, 0, new LayoutSnap(HudComponents.CROSSHAIR, ComponentAnchor.BOTTOM_RIGHT, ComponentAnchor.TOP_LEFT))
-        );
+//        MONEY_HUD_COMPONENT = HudComponents.register(
+//            new MoneyHudElement("stadew.money", 0, 0, new LayoutSnap(HudComponents.CROSSHAIR, ComponentAnchor.BOTTOM_RIGHT, ComponentAnchor.TOP_LEFT))
+//        );
 
         StardewClient.initAchievementsPage();
 

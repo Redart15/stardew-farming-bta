@@ -17,7 +17,6 @@ import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
-import net.minecraft.core.block.Blocks;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.collection.NamespaceID;
@@ -75,7 +74,7 @@ public class StardewModels {
         dispatcher.addDispatch(new BlockModelCropPumplike<>(StardewBlocks.CROPS_WATERMELON, "stardew:block/crops/watermelon", 5));
         dispatcher.addDispatch(new BlockModelCropPumplike<>(StardewBlocks.CROPS_CAULIFLOWER, "stardew:block/crops/cauliflower", 5));
 
-        dispatcher.addDispatch(new BlockModelBush<>(StardewBlocks.BUSH, "stardew:block/bush"));
+        dispatcher.addDispatch(new BlockModelBush<>(StardewBlocks.BUSH, "stardew:block/bush").render3D(false));
 
         dispatcher.addDispatch(new BlockModelGenericProgressive<>(StardewBlocks.CAKE_CHOCOLATE, "stardew:block/cake_chocolate", 6));
         dispatcher.addDispatch(new BlockModelGenericProgressive<>(StardewBlocks.PIZZA, "stardew:block/pizza", 6));

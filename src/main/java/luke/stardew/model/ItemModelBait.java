@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 @Environment(EnvType.CLIENT)
 public class ItemModelBait extends ItemModelStandard {
-    protected IconCoordinate baitFull = TextureRegistry.getTexture("stardew:item/armor_bait_empty");
+    protected IconCoordinate baitFull = TextureRegistry.getTexture("stardew:item/armor_canofworms_empty");
 
     public ItemModelBait(Item item) {
         super(item);
@@ -21,6 +21,6 @@ public class ItemModelBait extends ItemModelStandard {
 
     @Override
     public @NotNull IconCoordinate getIcon(@Nullable Entity entity, ItemStack itemStack) {
-        return itemStack.getMetadata() >= itemStack.getItem().getMaxDamage() ? this.baitFull : super.getIcon(entity, itemStack);
+        return itemStack.getMetadata() > itemStack.getItem().getMaxDamage() ? this.baitFull : super.getIcon(entity, itemStack);
     }
 }
