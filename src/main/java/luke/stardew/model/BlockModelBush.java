@@ -11,29 +11,24 @@ import org.useless.dragonfly.models.block.StaticBlockModel;
 
 public class BlockModelBush<T extends BlockLogic> extends BlockModelGenericProgressive<T> {
     public BlockModelBush(@NotNull Block<T> block, @NotNull String dataModelPath) {
-        super(block, dataModelPath, 4);
+        super(block, dataModelPath, 5);
     }
 
     @Override
     public @NotNull StaticBlockModel getModel(@NotNull WorldSource source, @NotNull TilePosc tilePosc) {
         var season = source.getSeasonManager().getCurrentSeason();
-
         if (season == Seasons.OVERWORLD_SPRING) {
             return models[0];
         }
-
         if (season == Seasons.OVERWORLD_SUMMER) {
             return models[1];
         }
-
         if (season == Seasons.OVERWORLD_FALL) {
             return models[2];
         }
-
         if (season == Seasons.OVERWORLD_WINTER || season == Seasons.OVERWORLD_WINTER_ENDLESS) {
             return models[3];
         }
-
         return models[4];
     }
 }

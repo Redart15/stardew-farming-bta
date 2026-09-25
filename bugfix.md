@@ -14,7 +14,7 @@ Ok ill just going to write down what the issues are since I need it compiled in 
 - Coffee Beans can get stuck, not growing.
 - Corn grows very slow
 - ~~Cauliflower does not turn farmland to dirt.~~ (seems to be intentinal)
-- Bushes causes the debug world to crash
+- ~~Bushes causes the debug world to crash~~
 
 Links:
 https://discord.com/channels/1138825919088312403/1231023002750287912/1551307060363272222
@@ -27,3 +27,8 @@ Patch Notes:
 - Summer crop grow correctly.
 - Fall crops grow correctly.
 - Cauliflower and Melon block are now place with the correct orientation when grown (would sometimes place it upside down).
+- Cauliflower, Watermelon and Beehive not render correctly
+- Carrot, blueberries and pineapple no longer crash the game.
+- Log, Leaves and Crops now use generic models
+- Bushes no longer crash the game
+- 

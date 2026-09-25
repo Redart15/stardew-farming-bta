@@ -121,10 +121,10 @@ public class BlockLogicWaxCandle extends BlockLogic implements ISupportable {
 
         };
 
-        for (int i = 0; i <= world.getBlockData(tilePos); i++) {
+        int count = world.getBlockData(tilePos) & 3;
+        for (int i = 0; i <= count; i++) {
             if (this.burning && rand.nextInt(2) == 0) {
                 var off = pos[i];
-
                 world.spawnParticle("smoke", tilePos.x() + off.x(), tilePos.y() + off.y(), tilePos.z() + off.z(), 0.0, 0.0, 0.0, 0, false);
                 world.spawnParticle("flame", tilePos.x() + off.x(), tilePos.y() + off.y(), tilePos.z() + off.z(), 0.0, 0.0, 0.0, 0, false);
             }
