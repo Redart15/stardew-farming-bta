@@ -6,11 +6,11 @@ Ok ill just going to write down what the issues are since I need it compiled in 
 - ~~Grapes and corn can be bonemealed, but do not grow naturally.~~
 - ~~The trellis by itself has no textures. Grapes planted using the trellis do have textures, but they seemingly do not render properly. Also, it seems like every crop from the mod either does not grow at all or crashes the game when it does grow.~~
 - ~~Also this happened. Chunks flickering and not rendering. Not sure if stardew was at fault here or not, but it was still really strange regardless.~~ (does not seem related)
-- Leaves are culling probably to much
-- Corn harvesting, idk how it was suppose to be but it seems broken, right now.
-    - Breaking behavior inconsistent across crops, coffee beans stacks drop beans and stick when broken in creative mode.
+- ~~Leaves are culling probably to much~~
+- ~~Corn harvesting, idk how it was suppose to be but it seems broken, right now.~~
+    - ~~Breaking behavior inconsistent across crops, coffee beans stacks drop beans and stick when broken in creative mode.~~
 - ~~Cauliflower sometime places incorrectly (upside down)~~
-- Coffee Beans texture consumes the stalks (well going to need help here)
+- ~~Coffee Beans texture consumes the stalks (well going to need help here)~~
 - Coffee Beans can get stuck, not growing.
 - Corn grows very slow
 - ~~Cauliflower does not turn farmland to dirt.~~ (seems to be intentinal)
@@ -23,12 +23,16 @@ https://discord.com/channels/1138825919088312403/1231023002750287912/15497959236
 
 Patch Notes:
 - Duck no longer crash server
-- Spring crop grows correctly.
-- Summer crop grow correctly.
-- Fall crops grow correctly.
+- Carrot, blueberries and pineapple no longer crash when fully grown the game.
+- Bushes no longer crash the game when turning into dead bushes.
 - Cauliflower and Melon block are now place with the correct orientation when grown (would sometimes place it upside down).
-- Cauliflower, Watermelon and Beehive not render correctly
-- Carrot, blueberries and pineapple no longer crash the game.
-- Log, Leaves and Crops now use generic models
-- Bushes no longer crash the game
-- 
+- Plant breaking is now consistent with 7.3
+- Crops now grow correctly.
+- Adjusted beehive behavior, it now also accepts honey to activate it.
+- Bee have been given some ai, so they behave more realistically.
+- Coffee plant texture was adjusted.
+- Leaves now cull sides correctly.
+- Log, Leaves and Crops now use generic models.
+- Fixed missing gui icon for empty or near empty can of worms.
+- Cauliflower, Watermelon and Beehive not render correctly.
+- Added missing langs.
