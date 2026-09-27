@@ -8,9 +8,15 @@
   "authors": [
     "LukeisStuff",
     "Dundi Gundi",
-    "big sir"
+    "big sir",
+    "Redart15"
   ],
-
+  "contributors": [
+    "soupAmng",
+    "camoweed_",
+    "KatGoesOldSchool",
+    "badsbee"
+  ],
   "icon": "icon.png",
   "contact": {
     "homepage": "",
@@ -21,7 +27,8 @@
 
   "entrypoints": {
     "main":   ["luke.stardew.StardewMod"    ],
-    "client": ["luke.stardew.StardewClient" ]
+    "client": ["luke.stardew.StardewClient" ],
+    "server": ["luke.stardew.StardewServer" ]
   },
 
   "mixins": [

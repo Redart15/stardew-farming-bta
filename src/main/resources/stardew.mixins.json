@@ -36,7 +36,8 @@
     "coffee.LayoutSnapMixin",
     "coffee.MobRendererMixin",
     "coffee.chat.PlayerLocalMixin",
-    "fix.AfterCommonClientEvent"
+    "fix.AfterCommonClientEvent",
+    "fix.HudComponentArmorBarMixinFix"
   ],
   "injectors": {
     "defaultRequire": 1
