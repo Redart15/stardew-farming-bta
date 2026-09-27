@@ -286,8 +286,8 @@ public class StardewRecipes {
 
 
         ItemStack itemStack = new ItemStack(StardewItems.ARMOR_CAN_OF_WORMS);
-        itemStack.damageItem(itemStack.getItem().getMaxDamage(), null);
-        RecipeBuilder.Shaped(MOD_ID, " I ", " I ")
+        itemStack.setMetadata(itemStack.getMaxDamage() + 1);
+        RecipeBuilder.Shaped(MOD_ID, "I", "I")
             .addInput('I', Items.INGOT_IRON)
             .create("can_of_worms", itemStack);
 
