@@ -42,44 +42,30 @@ public class BlockLogicBeehiveActive extends BlockLogicRotatable {
 
     @Override
     public void animationTick(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand) {
+        if (this.areBeeActive(world)) {
+            return;
+        }
         int meta = world.getBlockData(tilePos);
         double h = 0.5;
         double q = 0.25;
-        double random = (world.rand.nextInt(1) - Math.random());
-        if (meta == 2) {
-            if (rand.nextInt(2) == 0) {
-                world.spawnParticle("bee", tilePos.x() + h, tilePos.y() - random, tilePos.z() - q, 0.0, 0.0, 0.0, 0, false);
-                if (rand.nextInt(2) == 0) {
-                    world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, tilePos.x() + 0.5, tilePos.y() + 0.5, tilePos.z() + 0.5, StardewMod.MOD_ID + ":mob.bee", 0.4F, rand.nextFloat() * 0.4F + 0.8F);
+        for(int i = 0; i < 3; i++) {
+            double random = (world.rand.nextInt(1) - Math.random());
+            boolean spawnBees = rand.nextInt(2) == 0;
+            if(spawnBees) {
+                if (meta == 2) {
+                    world.spawnParticle("bee", tilePos.x() + h, tilePos.y() - random, tilePos.z() - q, 0.0, 0.0, 0.0, 0, false);
+                } else if (meta == 3) {
+                    world.spawnParticle("bee", tilePos.x() + h, tilePos.y() - random, tilePos.z() + 1 + q, 0.0, 0.0, 0.0, 0, false);
+                } else if (meta == 4) {
+                    world.spawnParticle("bee", tilePos.x() - q, tilePos.y() - random, tilePos.z() + h, 0.0, 0.0, 0.0, 0, false);
+                } else if (meta == 5) {
+                    world.spawnParticle("bee", tilePos.x() + 1 + q, tilePos.y() - random, tilePos.z() + h, 0.0, 0.0, 0.0, 0, false);
+                } else {
+                    world.spawnParticle("bee", tilePos.x(), tilePos.y(), tilePos.z(), 0.0, 0.0, 0.0, 0, false);
                 }
             }
-        } else if (meta == 3) {
             if (rand.nextInt(2) == 0) {
-                world.spawnParticle("bee", tilePos.x() + h, tilePos.y() - random, tilePos.z() + 1 + q, 0.0, 0.0, 0.0, 0, false);
-                if (rand.nextInt(2) == 0) {
-                    world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, tilePos.x() + 0.5, tilePos.y() + 0.5, tilePos.z() + 0.5, StardewMod.MOD_ID + ":mob.bee", 0.4F, rand.nextFloat() * 0.4F + 0.8F);
-                }
-            }
-        } else if (meta == 4) {
-            if (rand.nextInt(2) == 0) {
-                world.spawnParticle("bee", tilePos.x() - q, tilePos.y() - random, tilePos.z() + h, 0.0, 0.0, 0.0, 0, false);
-                if (rand.nextInt(2) == 0) {
-                    world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, tilePos.x() + 0.5, tilePos.y() + 0.5, tilePos.z() + 0.5, StardewMod.MOD_ID + ":mob.bee", 0.4F, rand.nextFloat() * 0.4F + 0.8F);
-                }
-            }
-        } else if (meta == 5) {
-            if (rand.nextInt(2) == 0) {
-                world.spawnParticle("bee", tilePos.x() + 1 + q, tilePos.y() - random, tilePos.z() + h, 0.0, 0.0, 0.0, 0, false);
-                if (rand.nextInt(2) == 0) {
-                    world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, tilePos.x() + 0.5, tilePos.y() + 0.5, tilePos.z() + 0.5, StardewMod.MOD_ID + ":mob.bee", 0.4F, rand.nextFloat() * 0.4F + 0.8F);
-                }
-            }
-        } else {
-            if (rand.nextInt(2) == 0) {
-                world.spawnParticle("bee", tilePos.x(), tilePos.y(), tilePos.z(), 0.0, 0.0, 0.0, 0, false);
-                if (rand.nextInt(2) == 0) {
-                    world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, tilePos.x() + 0.5, tilePos.y() + 0.5, tilePos.z() + 0.5, StardewMod.MOD_ID + ":mob.bee", 0.4F, rand.nextFloat() * 0.4F + 0.8F);
-                }
+                world.playSoundEffect(null, SoundCategory.ENTITY_SOUNDS, tilePos.x() + 0.5, tilePos.y() + 0.5, tilePos.z() + 0.5, StardewMod.MOD_ID + ":mob.bee", 0.4F, rand.nextFloat() * 0.4F + 0.8F);
             }
         }
     }
@@ -99,15 +85,17 @@ public class BlockLogicBeehiveActive extends BlockLogicRotatable {
     @Override
     public void updateTick(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand, boolean isRandomTick) {
         super.updateTick(world, tilePos, rand, isRandomTick);
-        if (world.getSeasonManager().getCurrentSeason() != Seasons.OVERWORLD_WINTER) {
-            int blockData = world.getBlockData(tilePos);
-            if (rand.nextInt(50) == 0) {
-                world.setBlockTypeDataNotify(tilePos, StardewBlocks.BEEHIVE_HONEY, blockData);
-            }
-        }else{
-            int blockData = world.getBlockData(tilePos);
-            world.setBlockTypeDataNotify(tilePos, StardewBlocks.BEEHIVE, blockData);
+        if (this.areBeeActive(world)) {
+            return;
         }
+        int blockData = world.getBlockData(tilePos);
+        if (rand.nextInt(50) == 0) {
+            world.setBlockTypeDataNotify(tilePos, StardewBlocks.BEEHIVE_HONEY, blockData);
+        }
+    }
+
+    private boolean areBeeActive(@NotNull World world) {
+        return world.getSeasonManager().getCurrentSeason() == Seasons.OVERWORLD_WINTER || !world.isDaytime() || (world.getCurrentWeather() != null && world.getCurrentWeather().isDamp());
     }
 
 
