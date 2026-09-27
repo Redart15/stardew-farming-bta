@@ -8,6 +8,7 @@ import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.pos.TilePos;
 import net.minecraft.core.world.pos.TilePosc;
 
 import java.util.List;
@@ -20,8 +21,13 @@ public class BlockLogicCropTallStake extends BlockLogicCropTall {
 
     @Override
     public void onHarvest(World world, TilePosc tilePos, int meta) {
-        world.setBlockTypeDataNotify(tilePos, StardewBlocks.PLANT_STAKE,0);
-        world.setBlockTypeDataNotify(tilePos, Blocks.AIR,0);
+        if (this.growTopMeta < 0) {
+            world.setBlockTypeDataNotify(tilePos, Blocks.AIR, 0);
+            world.setBlockTypeDataNotify(tilePos.down(new TilePos()), StardewBlocks.PLANT_STAKE, 0);
+        } else {
+            world.setBlockTypeDataNotify(tilePos, StardewBlocks.PLANT_STAKE, 0);
+            world.setBlockTypeDataNotify(tilePos.up(new TilePos()), Blocks.AIR, 0);
+        }
     }
 
     @Override

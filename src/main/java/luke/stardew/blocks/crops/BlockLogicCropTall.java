@@ -46,16 +46,16 @@ public class BlockLogicCropTall extends BlockLogicCropBase {
         int meta = world.getBlockData(tilePos);
         if (growTopMeta < 0) {
             if (world.getBlockType(new TilePos(tilePos.x(), tilePos.y() - 1, tilePos.z())).id() != otherBlock.id()) {
-                world.setBlockDataNotify(tilePos, 0);
+                world.setBlockTypeNotify(tilePos, Blocks.AIR);
             }
             return;
         }
         if (meta >= growTopMeta && world.getBlockType(new TilePos(tilePos.x(), tilePos.y() + 1, tilePos.z())) != otherBlock) {
-            world.setBlockDataNotify(tilePos, 0);
+            world.setBlockTypeNotify(tilePos, Blocks.AIR);
             return;
         }
         if (!super.canStay(world, tilePos)) {
-            world.setBlockDataNotify(tilePos, 0);
+            world.setBlockTypeNotify(tilePos, Blocks.AIR);
             this.dropWithCause(world, EnumDropCause.WORLD, tilePos, meta, null, null);
         }
     }
