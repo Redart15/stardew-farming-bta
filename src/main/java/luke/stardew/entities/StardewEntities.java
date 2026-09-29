@@ -5,7 +5,6 @@ import luke.stardew.entities.duck.MobDuck;
 import luke.stardew.entities.goat.MobGoat;
 import net.minecraft.core.entity.EntityDispatcher;
 import net.minecraft.core.util.collection.NamespaceID;
-import turniplabs.halplibe.helper.EntityHelper;
 
 import static luke.stardew.StardewMod.MOD_ID;
 
@@ -43,5 +42,6 @@ public final class StardewEntities {
             ProjectileEggDuck::new,
             "guidebook.section.mob.stardew.duck_egg.name"
         );
+
     }
 }
