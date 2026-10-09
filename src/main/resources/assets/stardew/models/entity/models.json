@@ -5,7 +5,7 @@
   ],
   "renderers": {
     "stardew:duck": {
-      "main":"geometry.duck"
+      "main":"geometry.stardew.duck"
     },
     "stardew:goat": {
       "main":"geometry.goat"
