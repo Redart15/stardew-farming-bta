@@ -78,7 +78,7 @@ public class StardewModels {
 
         dispatcher.addDispatch(new BlockModelGenericProgressive<>(StardewBlocks.CAKE_CHOCOLATE, "stardew:block/cake_chocolate", 6));
         dispatcher.addDispatch(new BlockModelGenericProgressive<>(StardewBlocks.PIZZA, "stardew:block/pizza", 6));
-        dispatcher.addDispatch(new BlockModelGenericProgressive<>(StardewBlocks.APPLE_PIE, "stardew:block/apple_pie", 3));
+        dispatcher.addDispatch(new BlockModelGenericProgressive<>(StardewBlocks.APPLE_PIE, "stardew:block/apple_pie", 6));
 
         // no generic version of glass out yet
         dispatcher.addDispatch(new BlockModelGlass<>(StardewBlocks.BLOCK_HONEY, "stardew:block/block_honey")

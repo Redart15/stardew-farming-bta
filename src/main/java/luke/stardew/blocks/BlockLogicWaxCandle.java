@@ -3,7 +3,6 @@ package luke.stardew.blocks;
 import luke.stardew.items.StardewItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
-import net.minecraft.core.block.BlockLogicFluid;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.entity.TileEntityActivator;
@@ -19,13 +18,11 @@ import net.minecraft.core.sound.SoundCategory;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
-import net.minecraft.core.world.WorldSource;
 import net.minecraft.core.world.pos.TilePos;
 import net.minecraft.core.world.pos.TilePosc;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3d;
-import org.joml.Vector3i;
 
 import java.util.Random;
 
@@ -154,7 +151,7 @@ public class BlockLogicWaxCandle extends BlockLogic implements ISupportable {
 
     @Override
     public @NotNull ItemStack @Nullable [] getBreakResult(@NotNull World world, @NotNull EnumDropCause dropCause, int data, @Nullable TileEntity tileEntity) {
-        return new ItemStack[]{new ItemStack(StardewItems.CANDLE, data)};
+        return new ItemStack[]{new ItemStack(StardewItems.CANDLE, data + 1)};
     }
 
     @Override

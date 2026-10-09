@@ -3,6 +3,7 @@ package luke.stardew.blocks;
 import luke.stardew.items.StardewItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicEdible;
+import net.minecraft.core.block.Blocks;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Side;
@@ -23,17 +24,17 @@ public class BlockLogicPieApple extends BlockLogicEdible {
         if (entityplayer.isSneaking()) {
             entityplayer.inventory.insertItem(new ItemStack(StardewItems.FOOD_APPLE_PIE_SLICE), true);
         } else {
-            if (entityplayer.getHealth() >= entityplayer.getMaxHealth()) {
+            if (entityplayer.getHealth() < entityplayer.getMaxHealth()) {
+                entityplayer.heal(this.getHealAmount(world, tilePos));
+            } else {
                 return;
             }
-            entityplayer.heal(this.getHealAmount(world, tilePos));
         }
-
-        int newData = world.getBlockData(tilePos) + 1;
-        if (newData >= this.maxBites) {
-            world.setBlockDataNotify(tilePos, 0);
+        int data = world.getBlockData(tilePos) + 1;
+        if (data >= this.maxBites) {
+            world.setBlockTypeNotify(tilePos, Blocks.AIR);
         } else {
-            world.setBlockDataNotify(tilePos, newData);
+            world.setBlockDataNotify(tilePos, data);
             world.markBlockDirty(tilePos);
         }
     }
@@ -50,8 +51,8 @@ public class BlockLogicPieApple extends BlockLogicEdible {
         float pix = 0.0625F;
         float height = 0.375F;
         float xMin = pix;
-        if (meta >= 2) xMin = 1F / 3F;
-        if (meta >= 4) xMin = 2F / 3F;
+        if (meta >= 2) xMin = 5F / 16F;
+        if (meta >= 4) xMin = 9F / 16F;
 
         return new AABBd(xMin, 0.0F, pix, 1.0F - pix, height, 1.0F - pix);
     }
