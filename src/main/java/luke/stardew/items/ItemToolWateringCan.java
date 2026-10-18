@@ -1,9 +1,5 @@
 package luke.stardew.items;
 
-import luke.stardew.WateringCanRegistry;
-import luke.stardew.blocks.StardewBlocks;
-import net.minecraft.core.block.Block;
-import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.entity.TileEntityActivator;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.Item;

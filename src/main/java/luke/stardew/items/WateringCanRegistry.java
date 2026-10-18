@@ -1,4 +1,4 @@
-package luke.stardew;
+package luke.stardew.items;
 
 import luke.stardew.blocks.StardewBlocks;
 import net.minecraft.core.block.Block;
