@@ -7,6 +7,7 @@ import net.minecraft.core.block.Blocks;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Side;
+import net.minecraft.core.util.phys.BoundingVolume;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 import net.minecraft.core.world.pos.TilePosc;
@@ -15,9 +16,30 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.primitives.AABBd;
 import org.joml.primitives.AABBdc;
 
+import java.util.Arrays;
+
 public class BlockLogicPieApple extends BlockLogicEdible {
+    private static final float HEIGHT = 0.375F;
+    private static final float[] COL = {1F / 16F, 6F / 16F, 10F / 16F, 15F / 16F};
+    private static final float[] ROW = {1F / 16F, 8F / 16F, 15F / 16F};
+    private static final BoundingVolume[] VOLUMES = new BoundingVolume[6];
+    private static final AABBdc[] SLICES = new AABBdc[6];
+
     public BlockLogicPieApple(Block<?> block) {
         super(block, 6, () -> StardewItems.FOOD_APPLE_PIE);
+        BlockLogicPieApple.bakeSelectionBox();
+    }
+
+    public static void bakeSelectionBox() {
+        for (int i = 0; i < 6; i++) {
+            int c = i / 2;
+            int r = i % 2;
+            SLICES[i] = new AABBd(COL[c], 0.0, ROW[r], COL[c + 1], HEIGHT, ROW[r + 1]);
+        }
+
+        for (int meta = 0; meta < 6; meta++) {
+            VOLUMES[meta] = BoundingVolume.bakeFromBlockSpaceAabbs(Arrays.copyOfRange(SLICES, meta, 6));
+        }
     }
 
     private void addSlice(World world, TilePosc tilePos, Player entityplayer) {
@@ -47,19 +69,26 @@ public class BlockLogicPieApple extends BlockLogicEdible {
 
     @Override
     public @NotNull AABBdc getBoundsFromState(@NotNull WorldSource source, @NotNull TilePosc tilePos) {
-        int meta = source.getBlockData(tilePos);
-        float pix = 0.0625F;
-        float height = 0.375F;
-        float xMin = pix;
-        if (meta >= 2) xMin = 5F / 16F;
-        if (meta >= 4) xMin = 9F / 16F;
+        AABBd bounds = new AABBd();
+        for(AABBdc aabbdc: BlockLogicPieApple.getShape(source.getBlockData(tilePos))){
+            bounds.union(aabbdc);
+        }
+        return bounds;
+    }
 
-        return new AABBd(xMin, 0.0F, pix, 1.0F - pix, height, 1.0F - pix);
+    public static @NotNull AABBdc[] getShape(int meta){
+        return Arrays.copyOfRange(SLICES, Math.max(0, Math.min(5, meta)), 6);
     }
 
 
     @Override
     public int getHealAmount(@NotNull World world, @NotNull TilePosc tilePosc) {
         return 3;
+    }
+
+    @Override
+    public @Nullable BoundingVolume getBoundingVolume(@NotNull World world, @NotNull TilePosc tilePos) {
+        int meta = world.getBlockData(tilePos);
+        return VOLUMES[Math.max(0, Math.min(5, meta))];
     }
 }
