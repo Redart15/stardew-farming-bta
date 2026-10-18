@@ -35,8 +35,8 @@ public class MobRendererDuck<T extends MobDuck> extends MobRenderer<T> {
         BoneTransform wing1 = model.getTransform("wing1");
         leg0.rotX =  (MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbYaw);
         leg1.rotX =  (MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbYaw);
-        wing0.rotZ = limbPitch;
-        wing1.rotZ = (-limbPitch);
+        wing0.rotZ = -limbPitch;
+        wing1.rotZ = (limbPitch);
         return model;
     }
 

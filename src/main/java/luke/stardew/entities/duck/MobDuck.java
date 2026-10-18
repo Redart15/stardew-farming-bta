@@ -1,7 +1,6 @@
 package luke.stardew.entities.duck;
 
 import luke.stardew.items.StardewItems;
-import net.minecraft.client.world.WorldEmpty;
 import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.block.BlockLogicFluid;
 import net.minecraft.core.entity.animal.Creature;
