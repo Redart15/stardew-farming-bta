@@ -184,7 +184,6 @@ public class StardewModels {
         dispatcher.addDispatch(new ItemModelStandard(StardewItems.FOOD_APPLE_PIE_SLICE));
     }
 
-
     public static void initEntityModels(EntityRendererDispatcher dispatcher) {
         dispatcher.assignRenderer(MobDuck.class, new MobRendererDuck<>(0.4F));
         dispatcher.assignRenderer(MobGoat.class, new MobRendererQuadruped<>(0.7F));
