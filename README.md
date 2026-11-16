@@ -5,9 +5,8 @@
 # Stardew Farming
 A farming mod for BTA inspired by stardew valley! Have you ever wanted more crops and farming added to BTA? More food choices and more reason to use seasons? Here is the mod for you.
 
-This mod is an unofficial continuation of Stardew Farming, originally created by [LukeisStuff](https://github.com/LukeisStuff). As the original project has been abandoned, I, Redart15, have taken over its development and maintenance.
-
-The original project can still be found [here](https://github.com/LukeisStuff/stardew-farming-bta).
+>**This mod is an unofficial continuation of Stardew Farming, originally created by [LukeisStuff](https://github.com/LukeisStuff). As the original project has been abandoned, I have taken over its development and maintenance.  
+The original project can still be found [here](https://github.com/LukeisStuff/stardew-farming-bta).**
 
 <p align=center>
 <img width="1052" height="907" alt="grafik" src="https://github.com/user-attachments/assets/73ff398e-aaa2-4473-a9c2-58a413941fb7" />
