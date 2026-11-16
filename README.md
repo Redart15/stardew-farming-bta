@@ -1,3 +1,7 @@
+[![GitHub License](https://img.shields.io/github/license/Redart15/stardew-farming-bta?labelColor=587B7F&color=D0F1BF&cacheSeconds=120)](https://github.com/Redart15/stardew-farming-bta?tab=CC0-1.0-1-ov-file#)
+[![GitHub Release](https://img.shields.io/github/v/release/Redart15/stardew-farming-bta?labelColor=587B7F&color=D0F1BF&cacheSeconds=120)](https://github.com/Redart15/stardew-farming-bta/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Redart15/stardew-farming-bta?labelColor=587B7F&color=D0F1BF&cacheSeconds=120)](https://github.com/Redart15/stardew-farming-bta/commits/8.0/)
+
 # Stardew Farming
 
 A farming mod for BTA inspired by stardew valley! Have you ever wanted more crops and farming added to BTA? More food choices and more reason to use seasons? Here is the mod for you
