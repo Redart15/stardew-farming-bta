@@ -28,9 +28,9 @@ The original project can still be found [here](https://github.com/LukeisStuff/st
 Check the [BTA! wiki page](https://bta.miraheze.org/wiki/Main_Page) about modding
 
 ## Credits
-Redart15 - Lead Develepoer
-LukeisStuff - Creator, Former Lead Developer
-Dundi Gundi - Developer
-big sir - Developer
-Beatrice, zotheyeen - Textures
-Useless, CookieCakes - Mod Help
+- Redart15 - Lead Develepoer
+- LukeisStuff - Creator, Former Lead Developer
+- Dundi Gundi - Developer
+- big sir - Developer
+- Beatrice, zotheyeen - Textures
+- Useless, CookieCakes - Mod Help
